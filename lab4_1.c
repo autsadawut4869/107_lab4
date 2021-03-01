@@ -4,15 +4,16 @@ int main()
     int num,i,j,m=0,mn=2000;
     int km,kn,sum;
     scanf("%d",&num);
-    int metal[num][3],x=num-2,y=i+3;
+    int a[num][3];
     for (i=0;i<num;i++){
         for (j=0;j<3;j++){
-            scanf("%d",&metal[i][j]);
+            scanf("%d",&a[i][j]);
         }
     }
-    for(i=0;i<x;i++){
-        for(j=i;j<y;j++){
-            sum=sum+(metal[j][0]*4)+(metal[j][1]*2)+(metal[j][2]*1);
+    for(i=0;i<num-2;i++){
+        for(j=i;j<i+3;j++){
+            sum=sum+(a[j][0]*4)+(a[j][1]*2)+(a[j][2]*1);
+            //printf("%d\n",sum);
         }
         if(m<sum){
            m=sum;
