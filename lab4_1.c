@@ -1,32 +1,33 @@
 #include <stdio.h>
 int main()
 {
-    int ex=0,d=0,m=0,y=0,d1=0,m1=0,y1=0,sum=0,day=30,year=0,month=0,sum1=0;
-
-    scanf("%d%d%d",&d,&m,&y);
-    scanf("%d%d%d",&d1,&m1,&y1);
-
-    if(y1>=y)
+    int num,i=0,j=0,max=0,min=2000;
+    int sum1=0,sum2=0,sum=0;
+    scanf("%d",&num);
+    int metal[num][3];
+    for (i=0;i<num;i++)
     {
-        sum=(30-d)+d1;
-        sum1=sum+day;
-        month=sum1/30;
-        ex=(12-d)+d1;
-        if(ex>=0)
-            ex=ex;
-        else
-            ex=ex*-1;
-        if(ex>=12)
-            year=1;
-        else
-            year=0;
-        printf("%d %d %d",sum,month,year);
+        for (j=0;j<3;j++)
+        {
+            scanf("%d",&metal[i][j]);
+        }
     }
-    else
+    for(i=0;i<num-2;i++)
     {
-        printf("EXP before MFG");
+        for(j=i;j<i+3;j++){
+            sum=sum+(metal[j][0]*4)+(metal[j][1]*2)+(metal[j][2]*1);
+        }
+        if(max<sum){
+           max=sum;
+           sum1=i+1;
+        }
+        if(min>sum){
+           min=sum;
+           sum2=i+1;
+        }
+        sum=0;
     }
+    printf("%d %d",sum1,sum2);
 
     return 0;
-
 }
